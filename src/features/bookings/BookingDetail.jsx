@@ -18,6 +18,7 @@ import { useCheckout } from "../check-in-out/useCheckout";
 import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import { useDeleteBooking } from "./useDeleteBooking";
+import Empty from "../../ui/Empty";
 
 const HeadingGroup = styled.div`
   display: flex;
@@ -34,6 +35,7 @@ function BookingDetail() {
   // eslint-disable-next-line no-debugger
 
   if (isLoading || isDeleting) return <Spinner></Spinner>;
+  if (!booking) return <Empty resource="booking"></Empty>;
 
   console.log(booking);
 
