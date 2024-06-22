@@ -41,7 +41,7 @@ const Discount = styled.div`
 
 function CabinRow({ cabin }) {
   const { isDeleting, deleteCabin } = useDeleteCabin();
-  const { name, maxCapacity, regularPrice, discounts, image, id, description } =
+  const { name, maxCapacity, regularPrice, discount, image, id, description } =
     cabin;
   const { isCreating, createCabin } = useCreateCabin();
 
@@ -50,7 +50,7 @@ function CabinRow({ cabin }) {
       name: `copy of ${name}`,
       maxCapacity,
       regularPrice,
-      discounts,
+      discount,
       image,
       description,
     });
@@ -63,10 +63,10 @@ function CabinRow({ cabin }) {
         <Cabin>{name}</Cabin>
         <div> Fits up to {maxCapacity}</div>
         <Price>{formatCurrency(regularPrice)}</Price>
-        {discounts ? (
-          <Discount>{formatCurrency(discounts)}</Discount>
+        {discount ? (
+          <Discount>{formatCurrency(discount)}</Discount>
         ) : (
-          <span>&mdash</span>
+          <span>&mdash;</span>
         )}
         <div>
           {" "}
